@@ -460,24 +460,17 @@
   {
     "type": "directive_expression",
     "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "valid_directives",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -577,10 +570,6 @@
         },
         {
           "type": "qualified_identifier",
-          "named": true
-        },
-        {
-          "type": "sigil_expression",
           "named": true
         },
         {
@@ -1059,25 +1048,6 @@
     }
   },
   {
-    "type": "sigil_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "expression_list",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source_file",
     "named": true,
     "root": true,
@@ -1434,11 +1404,6 @@
     }
   },
   {
-    "type": "valid_directives",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "variable_declaration",
     "named": true,
     "fields": {},
@@ -1547,10 +1512,6 @@
   },
   {
     "type": "#",
-    "named": false
-  },
-  {
-    "type": "$",
     "named": false
   },
   {

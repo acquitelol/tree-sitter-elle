@@ -15,6 +15,25 @@ const ASSIGNMENT_OPERATORS = [
   "<<=",
 ];
 
+const DIRECTIVES = {
+  len: ($) => ["(", $.expression, ")"],
+  size: ($) => ["(", $.type, ")"],
+  i: ($) => ["(", $.identifier, ")"],
+  env: ($) => [],
+  alloc: ($) => ["(", $.type, optional(seq(",", $.expression)), ")"],
+  realloc: ($) => [
+    "(",
+    $.expression,
+    ",",
+    $.type,
+    optional(seq(",", $.expression)),
+    ")",
+  ],
+  free: ($) => ["(", $.expression, ")"],
+  set_allocator: ($) => ["(", ")"],
+  reset_allocator: ($) => [],
+};
+
 module.exports = grammar({
   name: "elle",
   extras: ($) => [/\s|\\\r?\n/, $.comment, ";"],
@@ -338,7 +357,6 @@ module.exports = grammar({
         $.identifier,
         $.qualified_identifier,
         $.directive_expression,
-        $.sigil_expression,
       ),
 
     expression_list: ($) => commaSep1($.expression),
@@ -460,9 +478,6 @@ module.exports = grammar({
         ),
       ),
 
-    // _type_cast: ($) => prec.left(-10, seq(token("("), $.type, token(")"))),
-
-    // cast_expression: ($) => seq($._type_cast, $.expression),
     cast_expression: ($) =>
       prec.dynamic(
         19,
@@ -542,33 +557,15 @@ module.exports = grammar({
 
     // Directives and sigils
     directive_expression: ($) =>
-      // FIXME: kinda cursed
-      prec.left(
-        13,
+      choice(
+        ...Object.entries(DIRECTIVES).map(([k, v]) => seq("#", k, ...v($))),
+        seq("#", $.identifier),
         seq(
           "#",
-          choice(
-            seq(field("name", $.valid_directives)),
-            seq(field("name", $.valid_directives), "(", ")"),
-            seq(
-              field("name", $.valid_directives),
-              "(",
-              commaSep(choice($.type, $.expression)),
-              ")",
-            ),
-          ),
-        ),
-      ),
-
-    sigil_expression: ($) =>
-      prec.left(
-        13,
-        seq(
-          "$",
-          choice(
-            $.identifier,
-            seq($.identifier, "(", optional($.expression_list), ")"),
-          ),
+          $.identifier,
+          "(",
+          commaSep(choice($.type, $.expression)),
+          ")",
         ),
       ),
 
@@ -580,20 +577,6 @@ module.exports = grammar({
 
     // Identifiers
     identifier: ($) => /[a-zA-Z_$][a-zA-Z0-9_$]*/,
-
-    // https://github.com/acquitelol/elle/blob/rewrite/README.md#-directives
-    valid_directives: ($) =>
-      choice(
-        "len",
-        "size",
-        "i",
-        "env",
-        "alloc",
-        "realloc",
-        "free",
-        "set_allocator",
-        "reset_allocator",
-      ),
   },
 });
 
