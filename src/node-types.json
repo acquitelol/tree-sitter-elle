@@ -596,14 +596,6 @@
           "named": true
         },
         {
-          "type": "triple_literal",
-          "named": true
-        },
-        {
-          "type": "tuple_literal",
-          "named": true
-        },
-        {
           "type": "unary_expression",
           "named": true
         }
@@ -1350,36 +1342,6 @@
     }
   },
   {
-    "type": "triple_literal",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tuple_literal",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "tuple_type",
     "named": true,
     "fields": {},
@@ -1589,10 +1551,6 @@
   },
   {
     "type": "$",
-    "named": false
-  },
-  {
-    "type": "$$",
     "named": false
   },
   {

@@ -333,8 +333,6 @@ module.exports = grammar({
         $.boolean_literal,
         $.character_literal,
         $.array_literal,
-        $.tuple_literal,
-        $.triple_literal,
         $.struct_literal,
         $.lambda_expression,
         $.identifier,
@@ -514,27 +512,6 @@ module.exports = grammar({
         optional(seq($.type, ";")),
         optional(commaSep($.expression)),
         "]",
-      ),
-
-    tuple_literal: ($) =>
-      prec(
-        11,
-        seq("$", token.immediate("("), $.expression, ",", $.expression, ")"),
-      ),
-
-    triple_literal: ($) =>
-      prec(
-        11,
-        seq(
-          "$$",
-          token.immediate("("),
-          $.expression,
-          ",",
-          $.expression,
-          ",",
-          $.expression,
-          ")",
-        ),
       ),
 
     struct_literal: ($) =>
