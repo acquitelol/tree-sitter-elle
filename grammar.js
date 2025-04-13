@@ -33,6 +33,7 @@ const DIRECTIVES = {
   free: ($) => ["(", $.expression, ")"],
   set_allocator: ($) => ["(", $.expression, ")"],
   reset_allocator: ($) => ["(", ")"],
+  cast: ($) => ["(", $.type, ",", $.expression, ")"],
 };
 
 module.exports = grammar({
@@ -341,7 +342,6 @@ module.exports = grammar({
     expression: ($) =>
       choice(
         $.assignment_statement_no_semi,
-        $.cast_expression,
         $.call_expression,
         $.binary_expression,
         $.unary_expression,
@@ -352,6 +352,7 @@ module.exports = grammar({
         $.numeric_literal,
         $.string_literal,
         $.boolean_literal,
+        $.nil_literal,
         $.character_literal,
         $.array_literal,
         $.struct_literal,
@@ -480,15 +481,6 @@ module.exports = grammar({
         ),
       ),
 
-    cast_expression: ($) =>
-      prec.dynamic(
-        19,
-        seq(
-          seq(token("("), field("cast_type", $.type), token(")")),
-          field("value", $.expression),
-        ),
-      ),
-
     numeric_literal: ($) => {
       const hex = /0[xX][0-9a-fA-F](_?[0-9a-fA-F])*/;
       const octal = /0[oO][0-7](_?[0-7])*/;
@@ -521,6 +513,7 @@ module.exports = grammar({
       seq("'", choice(/[^'\\\n]/, $.escape_sequence), "'"),
 
     boolean_literal: ($) => choice("true", "false"),
+    nil_literal: ($) => "nil", // for highlighting it differently
 
     array_literal: ($) =>
       seq(

@@ -329,32 +329,6 @@
     }
   },
   {
-    "type": "cast_expression",
-    "named": true,
-    "fields": {
-      "cast_type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "character_literal",
     "named": true,
     "fields": {},
@@ -470,6 +444,10 @@
             "named": false
           },
           {
+            "type": "cast",
+            "named": false
+          },
+          {
             "type": "env",
             "named": false
           },
@@ -580,10 +558,6 @@
           "named": true
         },
         {
-          "type": "cast_expression",
-          "named": true
-        },
-        {
           "type": "character_literal",
           "named": true
         },
@@ -605,6 +579,10 @@
         },
         {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "nil_literal",
           "named": true
         },
         {
@@ -1771,6 +1749,10 @@
     "named": false
   },
   {
+    "type": "cast",
+    "named": false
+  },
+  {
     "type": "char",
     "named": false
   },
@@ -1873,6 +1855,10 @@
   {
     "type": "namespace",
     "named": false
+  },
+  {
+    "type": "nil_literal",
+    "named": true
   },
   {
     "type": "numeric_literal",
