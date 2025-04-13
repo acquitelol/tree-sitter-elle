@@ -30,8 +30,8 @@ const DIRECTIVES = {
     ")",
   ],
   free: ($) => ["(", $.expression, ")"],
-  set_allocator: ($) => ["(", ")"],
-  reset_allocator: ($) => [],
+  set_allocator: ($) => ["(", $.expression, ")"],
+  reset_allocator: ($) => ["(", ")"],
 };
 
 module.exports = grammar({

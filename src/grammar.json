@@ -3623,6 +3623,10 @@
               "value": "("
             },
             {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
               "type": "STRING",
               "value": ")"
             }
@@ -3642,6 +3646,14 @@
                 "type": "STRING",
                 "value": "reset_allocator"
               }
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "STRING",
+              "value": ")"
             }
           ]
         },
