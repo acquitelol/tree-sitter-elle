@@ -558,11 +558,13 @@ module.exports = grammar({
     // Directives and sigils
     directive_expression: ($) =>
       choice(
-        ...Object.entries(DIRECTIVES).map(([k, v]) => seq("#", k, ...v($))),
-        seq("#", $.identifier),
+        ...Object.entries(DIRECTIVES).map(([k, v]) =>
+          seq("#", field("name", k), ...v($)),
+        ),
+        seq("#", field("name", $.identifier)),
         seq(
           "#",
-          $.identifier,
+          field("name", $.identifier),
           "(",
           commaSep(choice($.type, $.expression)),
           ")",

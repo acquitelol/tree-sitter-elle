@@ -460,7 +460,54 @@
   {
     "type": "directive_expression",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alloc",
+            "named": false
+          },
+          {
+            "type": "env",
+            "named": false
+          },
+          {
+            "type": "free",
+            "named": false
+          },
+          {
+            "type": "i",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "len",
+            "named": false
+          },
+          {
+            "type": "realloc",
+            "named": false
+          },
+          {
+            "type": "reset_allocator",
+            "named": false
+          },
+          {
+            "type": "set_allocator",
+            "named": false
+          },
+          {
+            "type": "size",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
