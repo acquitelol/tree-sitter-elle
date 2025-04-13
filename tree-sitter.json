@@ -1,0 +1,39 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "elle",
+      "camelcase": "Elle",
+      "title": "Elle",
+      "scope": "source.elle",
+      "file-types": ["le"],
+      "injection-regex": "^elle$",
+      "class-name": "TreeSitterElle",
+      "highlights": ["queries/highlights.scm"]
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Elle grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Tnixc",
+        "email": "tnixxc@gmail.com",
+        "url": "https://tnixc.space/"
+      },
+      {
+        "name": "Rosie",
+        "email": "acquitefx@gmail.com",
+        "url": "https://github.com/acquitelol"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/acquitelol/tree-sitter-elle"
+    }
+  },
+  "bindings": {
+    "node": true,
+    "rust": true
+  }
+}
