@@ -866,22 +866,39 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "type"
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type"
+            }
           },
           {
-            "type": "STRING",
-            "value": "[]"
+            "type": "SYMBOL",
+            "name": "square_brackets"
           },
           {
             "type": "REPEAT",
             "content": {
-              "type": "STRING",
-              "value": "[]"
+              "type": "SYMBOL",
+              "name": "square_brackets"
             }
           }
         ]
       }
+    },
+    "square_brackets": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
     },
     "pointer_type": {
       "type": "SEQ",

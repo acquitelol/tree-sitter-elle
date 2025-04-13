@@ -21,13 +21,24 @@
   {
     "type": "array_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "type",
+          "type": "square_brackets",
           "named": true
         }
       ]
@@ -1114,6 +1125,11 @@
     "fields": {}
   },
   {
+    "type": "square_brackets",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "statement",
     "named": true,
     "fields": {},
@@ -1710,10 +1726,6 @@
   },
   {
     "type": "[",
-    "named": false
-  },
-  {
-    "type": "[]",
     "named": false
   },
   {

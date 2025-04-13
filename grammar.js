@@ -205,7 +205,16 @@ module.exports = grammar({
         $.tuple_type,
       ),
 
-    array_type: ($) => prec.left(1, seq($.type, "[]", repeat("[]"))),
+    array_type: ($) =>
+      prec.left(
+        1,
+        seq(
+          field("type", $.type),
+          $.square_brackets,
+          repeat($.square_brackets),
+        ),
+      ),
+    square_brackets: ($) => seq("[", "]"),
     pointer_type: ($) => seq($.type, token("*"), repeat(token("*"))),
 
     // Generic type: for types like Foo<Bar> or Foo<Bar<Baz *>>
