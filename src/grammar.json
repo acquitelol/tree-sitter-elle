@@ -913,8 +913,17 @@
       "type": "PREC_DYNAMIC",
       "value": 20,
       "content": {
-        "type": "SYMBOL",
-        "name": "generic_instance_parameters"
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "generic_instance_parameters"
+          }
+        ]
       }
     },
     "generic_instance_parameters": {
@@ -3758,6 +3767,12 @@
       "type",
       "qualified_identifier",
       "expression"
+    ],
+    [
+      "generic_type",
+      "qualified_identifier",
+      "call_expression",
+      "struct_literal"
     ]
   ],
   "precedences": [],

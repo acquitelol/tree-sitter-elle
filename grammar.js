@@ -27,12 +27,12 @@ module.exports = grammar({
     [$.expression, $.qualified_identifier],
     [$.struct_literal, $.qualified_identifier, $.call_expression],
     [$.type, $.qualified_identifier, $.expression],
-    // [
-    //   $.generic_type,
-    //   $.qualified_identifier,
-    //   $.call_expression,
-    //   $.struct_literal,
-    // ],
+    [
+      $.generic_type,
+      $.qualified_identifier,
+      $.call_expression,
+      $.struct_literal,
+    ],
   ],
 
   rules: {
@@ -187,7 +187,8 @@ module.exports = grammar({
     pointer_type: ($) => seq($.type, token("*"), repeat(token("*"))),
 
     // Generic type: for types like Foo<Bar> or Foo<Bar<Baz *>>
-    generic_type: ($) => prec.dynamic(20, $.generic_instance_parameters),
+    generic_type: ($) =>
+      prec.dynamic(20, seq($.identifier, $.generic_instance_parameters)),
     generic_instance_parameters: ($) =>
       prec(
         15,
