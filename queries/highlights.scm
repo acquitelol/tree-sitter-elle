@@ -68,7 +68,6 @@
 "namespace" @keyword
 "global" @keyword
 "let" @keyword
-"yield" @keyword
 "variadic" @keyword
 
 ; Function definition

@@ -1179,6 +1179,10 @@
           "named": true
         },
         {
+          "type": "variadic_statement",
+          "named": true
+        },
+        {
           "type": "while_statement",
           "named": true
         }
@@ -1513,6 +1517,21 @@
     "children": {
       "multiple": false,
       "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variadic_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
       "types": [
         {
           "type": "identifier",
@@ -1943,6 +1962,10 @@
   },
   {
     "type": "use",
+    "named": false
+  },
+  {
+    "type": "variadic",
     "named": false
   },
   {

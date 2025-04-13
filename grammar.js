@@ -215,6 +215,7 @@ module.exports = grammar({
           $.for_statement,
           $.foreach_statement,
           $.defer_statement,
+          $.variadic_statement,
           $.return_statement,
           $.break_statement,
           $.continue_statement,
@@ -307,6 +308,9 @@ module.exports = grammar({
           seq(token.immediate("return"), ";"),
         ),
       ),
+
+    variadic_statement: ($) =>
+      prec(50, seq(token.immediate("variadic"), $.identifier, ";")),
 
     break_statement: ($) => seq("break", ";"),
     continue_statement: ($) => seq("continue", ";"),
