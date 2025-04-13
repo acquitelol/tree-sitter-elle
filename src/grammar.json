@@ -1159,6 +1159,10 @@
               },
               {
                 "type": "STRING",
+                "value": ":="
+              },
+              {
+                "type": "STRING",
                 "value": "+="
               },
               {
@@ -1563,6 +1567,10 @@
               {
                 "type": "STRING",
                 "value": "="
+              },
+              {
+                "type": "STRING",
+                "value": ":="
               },
               {
                 "type": "STRING",
@@ -3851,6 +3859,11 @@
     [
       "type",
       "qualified_identifier",
+      "expression"
+    ],
+    [
+      "qualified_identifier",
+      "variable_declaration_no_semi",
       "expression"
     ],
     [

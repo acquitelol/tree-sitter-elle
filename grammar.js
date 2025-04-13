@@ -2,6 +2,7 @@
 
 const ASSIGNMENT_OPERATORS = [
   "=",
+  ":=",
   "+=",
   "-=",
   "*=",
@@ -46,6 +47,7 @@ module.exports = grammar({
     [$.expression, $.qualified_identifier],
     [$.struct_literal, $.qualified_identifier, $.call_expression],
     [$.type, $.qualified_identifier, $.expression],
+    [$.qualified_identifier, $.variable_declaration_no_semi, $.expression],
     [
       $.generic_type,
       $.qualified_identifier,
