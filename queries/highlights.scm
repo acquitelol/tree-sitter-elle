@@ -25,8 +25,6 @@
 (generic_parameters (identifier) @type)
 
 ; hmm for primitives, @type or @keyword?
-"ElleMeta" @type
-"ElleEnv" @type
 "void" @type
 "bool" @type
 "char" @type
