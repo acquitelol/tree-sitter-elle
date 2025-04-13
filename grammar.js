@@ -45,6 +45,7 @@ module.exports = grammar({
     [$.range_expression],
     [$.pointer_type],
     [$.attribute],
+    [$.qualified_identifier],
     [$.expression, $.qualified_identifier],
     [$.struct_literal, $.qualified_identifier, $.call_expression],
     [$.type, $.qualified_identifier, $.expression],
@@ -119,7 +120,11 @@ module.exports = grammar({
 
     qualified_identifier: ($) =>
       prec.left(
-        seq(repeat(seq($.identifier, "::")), field("name", $.identifier)),
+        seq(
+          optional(seq(field("module", $.identifier), "::")),
+          optional(seq(field("namespace", $.identifier), "::")),
+          field("name", $.identifier),
+        ),
       ),
 
     attributes: ($) => repeat1($.attribute),
