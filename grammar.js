@@ -143,9 +143,12 @@ module.exports = grammar({
         ),
       ),
 
-    parameter: ($) => prec(20, seq($.type, $.identifier)),
-    attribute_parameter: ($) => seq($.attribute, $.type, $.identifier),
-    variadic_parameter: ($) => seq("...", optional($.identifier)),
+    parameter: ($) =>
+      prec(20, seq(field("type", $.type), field("name", $.identifier))),
+    attribute_parameter: ($) =>
+      seq($.attribute, field("type", $.type), field("name", $.identifier)),
+    variadic_parameter: ($) =>
+      seq("...", optional(field("name", $.identifier))),
 
     // Constant definitions
     constant_definition: ($) =>
