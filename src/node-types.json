@@ -1548,7 +1548,18 @@
   {
     "type": "yield_expression",
     "named": true,
-    "fields": {},
+    "fields": {
+      "property": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "yield",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,

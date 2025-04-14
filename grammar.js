@@ -432,7 +432,6 @@ module.exports = grammar({
     //   prec(15, seq(token("("), $.expression, token(")"))),
     parenthesized_expression: ($) =>
       prec.dynamic(20, seq("(", field("inner", $.expression), ")")),
-    yield_expression: ($) => seq($.identifier, ".", "yield", "(", $.type, ")"),
 
     call_expression: ($) =>
       choice(
@@ -466,6 +465,9 @@ module.exports = grammar({
           field("property", $.identifier),
         ),
       ),
+
+    yield_expression: ($) =>
+      seq($.identifier, ".", field("property", "yield"), "(", $.type, ")"),
 
     subscript_expression: ($) =>
       prec.left(
