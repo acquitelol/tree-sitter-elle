@@ -623,6 +623,10 @@
         {
           "type": "unary_expression",
           "named": true
+        },
+        {
+          "type": "yield_expression",
+          "named": true
         }
       ]
     }
@@ -1542,6 +1546,29 @@
     }
   },
   {
+    "type": "yield_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "yield_token",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "!",
     "named": false
   },
@@ -1953,6 +1980,10 @@
   {
     "type": "while",
     "named": false
+  },
+  {
+    "type": "yield_token",
+    "named": true
   },
   {
     "type": "{",

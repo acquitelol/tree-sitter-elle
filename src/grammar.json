@@ -1797,6 +1797,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "yield_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "call_expression"
         },
         {
@@ -2742,6 +2746,35 @@
         ]
       }
     },
+    "yield_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "yield_token"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
     "call_expression": {
       "type": "CHOICE",
       "members": [
@@ -3105,6 +3138,10 @@
     "nil_literal": {
       "type": "STRING",
       "value": "nil"
+    },
+    "yield_token": {
+      "type": "STRING",
+      "value": "yield"
     },
     "array_literal": {
       "type": "SEQ",
@@ -3916,6 +3953,11 @@
       "qualified_identifier",
       "variable_declaration_no_semi",
       "expression"
+    ],
+    [
+      "qualified_identifier",
+      "expression",
+      "yield_expression"
     ],
     [
       "generic_type",

@@ -50,6 +50,7 @@ module.exports = grammar({
     [$.struct_literal, $.qualified_identifier, $.call_expression],
     [$.type, $.qualified_identifier, $.expression],
     [$.qualified_identifier, $.variable_declaration_no_semi, $.expression],
+    [$.qualified_identifier, $.expression, $.yield_expression],
     [
       $.generic_type,
       $.qualified_identifier,
@@ -356,6 +357,7 @@ module.exports = grammar({
     expression: ($) =>
       choice(
         $.assignment_statement_no_semi,
+        $.yield_expression,
         $.call_expression,
         $.binary_expression,
         $.unary_expression,
@@ -430,6 +432,8 @@ module.exports = grammar({
     //   prec(15, seq(token("("), $.expression, token(")"))),
     parenthesized_expression: ($) =>
       prec.dynamic(20, seq("(", field("inner", $.expression), ")")),
+    yield_expression: ($) =>
+      seq($.identifier, ".", $.yield_token, "(", $.type, ")"),
 
     call_expression: ($) =>
       choice(
@@ -528,6 +532,7 @@ module.exports = grammar({
 
     boolean_literal: ($) => choice("true", "false"),
     nil_literal: ($) => "nil", // for highlighting it differently
+    yield_token: ($) => "yield", // for highlighting with variable.special
 
     array_literal: ($) =>
       seq(
