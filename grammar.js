@@ -75,8 +75,8 @@ module.exports = grammar({
     specifier_definition: ($) => choice("pub", "external", "!pub", "!external"),
 
     // Comments
-    comment: ($) =>
-      choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
+    comment: ($) => choice(seq("//", /.*/)),
+    // seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")), // TODO: uncomment when multiline comments are added
 
     // Import statements
     import_statement: ($) => seq("use", $.module_path, ";"),
