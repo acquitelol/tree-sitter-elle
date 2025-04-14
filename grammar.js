@@ -550,7 +550,7 @@ module.exports = grammar({
       prec(
         -1,
         seq(
-          $.identifier,
+          field("name", $.identifier),
           optional($.generic_parameters),
           token("{"),
           commaSep($.struct_field_initializer),
