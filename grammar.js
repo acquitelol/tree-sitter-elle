@@ -432,8 +432,7 @@ module.exports = grammar({
     //   prec(15, seq(token("("), $.expression, token(")"))),
     parenthesized_expression: ($) =>
       prec.dynamic(20, seq("(", field("inner", $.expression), ")")),
-    yield_expression: ($) =>
-      seq($.identifier, ".", $.yield_token, "(", $.type, ")"),
+    yield_expression: ($) => seq($.identifier, ".", "yield", "(", $.type, ")"),
 
     call_expression: ($) =>
       choice(
@@ -532,7 +531,6 @@ module.exports = grammar({
 
     boolean_literal: ($) => choice("true", "false"),
     nil_literal: ($) => "nil", // for highlighting it differently
-    yield_token: ($) => "yield", // for highlighting with variable.special
 
     array_literal: ($) =>
       seq(

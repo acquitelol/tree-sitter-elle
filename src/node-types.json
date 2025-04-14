@@ -1560,10 +1560,6 @@
         {
           "type": "type",
           "named": true
-        },
-        {
-          "type": "yield_token",
-          "named": true
         }
       ]
     }
@@ -1982,8 +1978,8 @@
     "named": false
   },
   {
-    "type": "yield_token",
-    "named": true
+    "type": "yield",
+    "named": false
   },
   {
     "type": "{",

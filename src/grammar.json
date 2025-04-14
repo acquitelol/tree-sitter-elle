@@ -2758,8 +2758,8 @@
           "value": "."
         },
         {
-          "type": "SYMBOL",
-          "name": "yield_token"
+          "type": "STRING",
+          "value": "yield"
         },
         {
           "type": "STRING",
@@ -3138,10 +3138,6 @@
     "nil_literal": {
       "type": "STRING",
       "value": "nil"
-    },
-    "yield_token": {
-      "type": "STRING",
-      "value": "yield"
     },
     "array_literal": {
       "type": "SEQ",
