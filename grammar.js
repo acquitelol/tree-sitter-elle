@@ -18,7 +18,7 @@ const ASSIGNMENT_OPERATORS = [
 
 const DIRECTIVES = {
   len: ($) => ["(", $.expression, ")"],
-  size: ($) => ["(", $.type, ")"],
+  size: ($) => ["(", choice(prec(2, $.type), prec(1, $.expression)), ")"],
   i: ($) => ["(", $.identifier, ")"],
   env: ($) => [],
   alloc: ($) => ["(", $.type, optional(seq(",", $.expression)), ")"],

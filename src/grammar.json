@@ -3487,8 +3487,25 @@
               "value": "("
             },
             {
-              "type": "SYMBOL",
-              "name": "type"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "PREC",
+                  "value": 2,
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "type"
+                  }
+                },
+                {
+                  "type": "PREC",
+                  "value": 1,
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                }
+              ]
             },
             {
               "type": "STRING",
