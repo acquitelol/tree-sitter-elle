@@ -31,6 +31,10 @@
           {
             "type": "SYMBOL",
             "name": "namespace_directive"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "lsp_type_definition"
           }
         ]
       }
@@ -53,6 +57,31 @@
         {
           "type": "STRING",
           "value": "!external"
+        }
+      ]
+    },
+    "lsp_type_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "let"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },

@@ -930,6 +930,25 @@
     }
   },
   {
+    "type": "lsp_type_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "member_expression",
     "named": true,
     "fields": {
@@ -1140,6 +1159,10 @@
         },
         {
           "type": "import_statement",
+          "named": true
+        },
+        {
+          "type": "lsp_type_definition",
           "named": true
         },
         {
