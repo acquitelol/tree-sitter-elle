@@ -932,10 +932,21 @@
   {
     "type": "lsp_type_definition",
     "named": true,
-    "fields": {},
+    "fields": {
+      "directive": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "directive_expression",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "character_literal",

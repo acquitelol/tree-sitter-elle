@@ -87,7 +87,7 @@ module.exports = grammar({
         ),
         seq($.string_literal, ":", $.type),
         seq($.character_literal, ":", $.type),
-        $.directive_expression,
+        field("directive", $.directive_expression),
       ),
 
     // Comments

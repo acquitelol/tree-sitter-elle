@@ -139,6 +139,14 @@
               "name": "type"
             }
           ]
+        },
+        {
+          "type": "FIELD",
+          "name": "directive",
+          "content": {
+            "type": "SYMBOL",
+            "name": "directive_expression"
+          }
         }
       ]
     },
