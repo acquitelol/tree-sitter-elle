@@ -938,7 +938,19 @@
       "required": true,
       "types": [
         {
+          "type": "character_literal",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "nil_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
           "named": true
         },
         {

@@ -77,7 +77,17 @@ module.exports = grammar({
     specifier_definition: ($) => choice("pub", "external", "!pub", "!external"),
 
     // extra node for top-level parsing of types so it can be displayed by LSP clients
-    lsp_type_definition: ($) => seq("let", $.identifier, ":", $.type, ";"),
+    lsp_type_definition: ($) =>
+      choice(
+        seq(
+          choice("let", "const"),
+          choice($.identifier, $.nil_literal),
+          ":",
+          $.type,
+        ),
+        seq($.string_literal, ":", $.type),
+        seq($.character_literal, ":", $.type),
+      ),
 
     // Comments
     comment: ($) => choice(seq("//", /.*/)),
