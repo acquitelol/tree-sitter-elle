@@ -70,6 +70,7 @@ module.exports = grammar({
           $.global_directive,
           $.namespace_directive,
           $.lsp_type_definition,
+          $.boolean_literal, // so the lsp can parse it
         ),
       ),
 

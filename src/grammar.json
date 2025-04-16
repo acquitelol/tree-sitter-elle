@@ -35,6 +35,10 @@
           {
             "type": "SYMBOL",
             "name": "lsp_type_definition"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "boolean_literal"
           }
         ]
       }

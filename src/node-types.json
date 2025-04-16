@@ -1146,6 +1146,10 @@
       "required": false,
       "types": [
         {
+          "type": "boolean_literal",
+          "named": true
+        },
+        {
           "type": "constant_definition",
           "named": true
         },
