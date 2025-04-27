@@ -264,6 +264,36 @@
           ]
         },
         {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "qualified_identifier"
+            },
+            {
+              "type": "STRING",
+              "value": "="
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "string_literal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "character_literal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "numeric_literal"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "directive",
           "content": {

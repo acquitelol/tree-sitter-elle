@@ -1015,6 +1015,14 @@
           "named": true
         },
         {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "qualified_identifier",
+          "named": true
+        },
+        {
           "type": "string_literal",
           "named": true
         },

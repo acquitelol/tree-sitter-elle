@@ -121,6 +121,11 @@ module.exports = grammar({
         ),
         seq($.string_literal, ":", $.type),
         seq($.character_literal, ":", $.type),
+        seq(
+          $.qualified_identifier,
+          "=",
+          choice($.string_literal, $.character_literal, $.numeric_literal),
+        ),
         field("directive", $.directive_expression),
       ),
 
