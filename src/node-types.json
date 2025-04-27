@@ -557,6 +557,10 @@
       "required": true,
       "types": [
         {
+          "type": "attributes",
+          "named": true
+        },
+        {
           "type": "enum_variant",
           "named": true
         },

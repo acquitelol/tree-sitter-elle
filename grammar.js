@@ -86,7 +86,15 @@ module.exports = grammar({
     shebang: ($) => token(seq("#!", /.*/)),
 
     enum_definition: ($) =>
-      seq("enum", $.identifier, "{", repeat($.enum_variant), "}", ";"),
+      seq(
+        "enum",
+        $.identifier,
+        optional($.attributes),
+        "{",
+        repeat($.enum_variant),
+        "}",
+        ";",
+      ),
 
     enum_variant: ($) =>
       seq(
