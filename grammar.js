@@ -74,11 +74,34 @@ module.exports = grammar({
           $.function_definition,
           $.constant_definition,
           $.struct_definition,
+          $.enum_definition,
           $.global_directive,
           $.namespace_directive,
           $.lsp_type_definition,
           $.boolean_literal, // so the lsp can parse it
         ),
+      ),
+
+    enum_definition: ($) =>
+      seq(
+        "enum",
+        field("name", $.identifier),
+        "{",
+        repeat($.enum_variant),
+        "}",
+        ";",
+      ),
+
+    enum_variant: ($) =>
+      seq(
+        field("variant", $.identifier),
+        optional(
+          seq(
+            "=",
+            choice($.string_literal, $.numeric_literal, $.character_literal),
+          ),
+        ),
+        optional(","),
       ),
 
     specifier_definition: ($) => choice("pub", "external", "!pub", "!external"),
