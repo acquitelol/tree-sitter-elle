@@ -78,23 +78,19 @@ module.exports = grammar({
           $.global_directive,
           $.namespace_directive,
           $.lsp_type_definition,
+          $.shebang,
           $.boolean_literal, // so the lsp can parse it
         ),
       ),
 
+    shebang: ($) => token(seq("#!", /.*/)),
+
     enum_definition: ($) =>
-      seq(
-        "enum",
-        field("name", $.identifier),
-        "{",
-        repeat($.enum_variant),
-        "}",
-        ";",
-      ),
+      seq("enum", $.identifier, "{", repeat($.enum_variant), "}", ";"),
 
     enum_variant: ($) =>
       seq(
-        field("variant", $.identifier),
+        $.identifier,
         optional(
           seq(
             "=",

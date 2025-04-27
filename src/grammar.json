@@ -42,7 +42,27 @@
           },
           {
             "type": "SYMBOL",
+            "name": "shebang"
+          },
+          {
+            "type": "SYMBOL",
             "name": "boolean_literal"
+          }
+        ]
+      }
+    },
+    "shebang": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#!"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
           }
         ]
       }
@@ -55,12 +75,8 @@
           "value": "enum"
         },
         {
-          "type": "FIELD",
-          "name": "name",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          }
+          "type": "SYMBOL",
+          "name": "identifier"
         },
         {
           "type": "STRING",
@@ -87,12 +103,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "FIELD",
-          "name": "variant",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          }
+          "type": "SYMBOL",
+          "name": "identifier"
         },
         {
           "type": "CHOICE",

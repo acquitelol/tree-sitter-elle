@@ -551,24 +551,17 @@
   {
     "type": "enum_definition",
     "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "enum_variant",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -577,24 +570,17 @@
   {
     "type": "enum_variant",
     "named": true,
-    "fields": {
-      "variant": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -1258,6 +1244,10 @@
         },
         {
           "type": "namespace_directive",
+          "named": true
+        },
+        {
+          "type": "shebang",
           "named": true
         },
         {
@@ -2081,6 +2071,10 @@
   {
     "type": "set_allocator",
     "named": false
+  },
+  {
+    "type": "shebang",
+    "named": true
   },
   {
     "type": "size",
