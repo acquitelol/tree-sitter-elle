@@ -100,6 +100,10 @@
         {
           "type": "identifier",
           "named": true
+        },
+        {
+          "type": "type",
+          "named": true
         }
       ]
     }

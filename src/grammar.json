@@ -648,8 +648,17 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "expression"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "type"
+                        }
+                      ]
                     },
                     {
                       "type": "BLANK"

@@ -180,7 +180,11 @@ module.exports = grammar({
 
     attributes: ($) => repeat1($.attribute),
     attribute: ($) =>
-      seq("@", $.identifier, optional(seq("(", optional($.expression), ")"))),
+      seq(
+        "@",
+        $.identifier,
+        optional(seq("(", optional(choice($.expression, $.type)), ")")),
+      ),
 
     parameter_list: ($) =>
       prec.right(
