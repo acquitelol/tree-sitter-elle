@@ -425,7 +425,7 @@
           "named": true
         },
         {
-          "type": "qualified_identifier",
+          "type": "identifier",
           "named": true
         },
         {
