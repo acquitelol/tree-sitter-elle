@@ -216,7 +216,7 @@ module.exports = grammar({
         optional($.specifier_definition),
         "const",
         optional($.type),
-        choice($.identifier, $.qualified_identifier, $.exact_literal),
+        $.identifier,
         "=",
         $.expression,
         ";",
