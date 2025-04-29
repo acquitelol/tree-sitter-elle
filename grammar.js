@@ -127,6 +127,7 @@ module.exports = grammar({
           choice($.string_literal, $.character_literal, $.numeric_literal),
         ),
         field("directive", $.directive_expression),
+        seq("type", $.identifier, optional(";")),
       ),
 
     // Comments

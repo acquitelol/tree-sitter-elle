@@ -2109,6 +2109,10 @@
     "named": false
   },
   {
+    "type": "type",
+    "named": false
+  },
+  {
     "type": "u16",
     "named": false
   },
