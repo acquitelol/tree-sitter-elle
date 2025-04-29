@@ -917,7 +917,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "qualified_identifier"
         },
         {
           "type": "STRING",
