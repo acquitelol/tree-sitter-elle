@@ -916,8 +916,21 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "qualified_identifier"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "qualified_identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "exact_literal"
+            }
+          ]
         },
         {
           "type": "STRING",
