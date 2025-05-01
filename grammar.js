@@ -624,12 +624,14 @@ module.exports = grammar({
       prec(12, seq($.expression, choice("..", "..="), $.expression)),
 
     lambda_expression: ($) =>
-      seq(
-        "fn",
-        "(",
-        optional($.parameter_list),
-        ")",
-        choice($.expression, $.block),
+      prec.left(
+        seq(
+          "fn",
+          "(",
+          optional($.parameter_list),
+          ")",
+          choice($.expression, $.statement),
+        ),
       ),
 
     // Directives and sigils

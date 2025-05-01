@@ -969,15 +969,15 @@
       "required": true,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
           "type": "expression",
           "named": true
         },
         {
           "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "statement",
           "named": true
         }
       ]
