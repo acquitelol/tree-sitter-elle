@@ -383,7 +383,7 @@ module.exports = grammar({
       ),
 
     foreach_statement: ($) =>
-      seq("for", optional($.type), $.identifier, "in", $.expression, $.block),
+      seq("for", optional($.type), optional("&"), $.identifier, "in", $.expression, $.block),
 
     variable_declaration_no_semi: ($) =>
       choice(
