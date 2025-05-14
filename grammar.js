@@ -234,7 +234,8 @@ module.exports = grammar({
         "}",
       ),
 
-    struct_field: ($) => seq($.type, $.identifier, optional(",")),
+    struct_field: ($) =>
+      seq(optional($.attribute), $.type, $.identifier, optional(",")),
 
     generic_parameters: ($) =>
       prec(
