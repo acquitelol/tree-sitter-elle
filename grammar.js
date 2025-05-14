@@ -93,7 +93,6 @@ module.exports = grammar({
         "{",
         repeat($.enum_variant),
         "}",
-        ";",
       ),
 
     enum_variant: ($) =>
@@ -233,10 +232,9 @@ module.exports = grammar({
         "{",
         repeat($.struct_field),
         "}",
-        ";",
       ),
 
-    struct_field: ($) => seq($.type, $.identifier, ";"),
+    struct_field: ($) => seq($.type, $.identifier, optional(",")),
 
     generic_parameters: ($) =>
       prec(
@@ -383,7 +381,15 @@ module.exports = grammar({
       ),
 
     foreach_statement: ($) =>
-      seq("for", optional($.type), optional("&"), $.identifier, "in", $.expression, $.block),
+      seq(
+        "for",
+        optional($.type),
+        optional("&"),
+        $.identifier,
+        "in",
+        $.expression,
+        $.block,
+      ),
 
     variable_declaration_no_semi: ($) =>
       choice(
