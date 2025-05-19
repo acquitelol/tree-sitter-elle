@@ -196,7 +196,12 @@ module.exports = grammar({
         15,
         choice(
           commaSep1(
-            choice($.parameter, $.attribute_parameter, $.variadic_parameter),
+            choice(
+              $.parameter,
+              $.attribute_parameter,
+              $.identifier,
+              $.variadic_parameter,
+            ),
           ),
           "void",
         ),

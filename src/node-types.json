@@ -1129,6 +1129,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "parameter",
           "named": true
         },

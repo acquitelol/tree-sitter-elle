@@ -751,6 +751,10 @@
                   },
                   {
                     "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "SYMBOL",
                     "name": "variadic_parameter"
                   }
                 ]
@@ -774,6 +778,10 @@
                         {
                           "type": "SYMBOL",
                           "name": "attribute_parameter"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "identifier"
                         },
                         {
                           "type": "SYMBOL",
