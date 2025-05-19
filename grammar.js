@@ -517,7 +517,9 @@ module.exports = grammar({
                 $.exact_literal,
               ),
             ),
-            optional(field("generic_parameters", $.generic_parameters)),
+            optional(
+              field("generic_parameters", $.generic_instance_parameters),
+            ),
             field(
               "arguments",
               seq(token("("), optional($.expression_list), token(")")),

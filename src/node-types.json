@@ -349,7 +349,7 @@
         "required": false,
         "types": [
           {
-            "type": "generic_parameters",
+            "type": "generic_instance_parameters",
             "named": true
           }
         ]

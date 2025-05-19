@@ -3096,7 +3096,7 @@
                     "name": "generic_parameters",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "generic_parameters"
+                      "name": "generic_instance_parameters"
                     }
                   },
                   {
