@@ -276,6 +276,13 @@ module.exports = grammar({
         $.array_type,
         $.pointer_type,
         $.tuple_type,
+        $.function_type,
+      ),
+
+    function_type: ($) =>
+      prec.left(
+        1,
+        seq("fn", "(", commaSep($.type), ")", optional(seq("->", $.type))),
       ),
 
     array_type: ($) =>
