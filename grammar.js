@@ -396,9 +396,9 @@ module.exports = grammar({
     foreach_statement: ($) =>
       seq(
         "for",
-        optional($.type),
-        optional("&"),
         $.identifier,
+        optional(seq(",", $.identifier)),
+        optional(seq(",", $.identifier)),
         "in",
         $.expression,
         $.block,
