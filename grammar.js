@@ -58,6 +58,7 @@ module.exports = grammar({
     [$.type, $.qualified_identifier, $.expression],
     [$.qualified_identifier, $.variable_declaration_no_semi, $.expression],
     [$.qualified_identifier, $.expression, $.yield_expression],
+    [$.square_brackets, $.array_literal],
     [
       $.generic_type,
       $.qualified_identifier,
@@ -651,6 +652,7 @@ module.exports = grammar({
           "(",
           optional($.parameter_list),
           ")",
+          optional(seq("->", $.type)),
           choice($.expression, $.statement),
         ),
       ),

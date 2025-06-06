@@ -990,6 +990,10 @@
         {
           "type": "statement",
           "named": true
+        },
+        {
+          "type": "type",
+          "named": true
         }
       ]
     }
