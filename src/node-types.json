@@ -453,7 +453,7 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "statement",
           "named": true
         }
       ]

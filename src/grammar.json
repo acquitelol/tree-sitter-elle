@@ -2110,7 +2110,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "expression"
+          "name": "statement"
         },
         {
           "type": "STRING",

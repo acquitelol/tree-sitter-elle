@@ -419,7 +419,7 @@ module.exports = grammar({
         seq($.expression, choice(...ASSIGNMENT_OPERATORS), $.expression),
       ),
 
-    defer_statement: ($) => seq("defer", $.expression, ";"),
+    defer_statement: ($) => seq("defer", $.statement, ";"),
 
     return_statement: ($) =>
       prec(
