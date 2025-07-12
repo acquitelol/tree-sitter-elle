@@ -680,7 +680,7 @@ module.exports = grammar({
       seq($.type, $.identifier, "[", $.expression, "]", ";"),
 
     // Identifiers
-    identifier: ($) => /[a-zA-Z_$][a-zA-Z0-9_$]*/,
+    identifier: ($) => token(prec(-1, /[$_\p{L}][$\p{L}\p{N}_]*/u)),
   },
 });
 

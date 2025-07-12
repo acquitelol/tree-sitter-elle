@@ -4399,8 +4399,16 @@
       ]
     },
     "identifier": {
-      "type": "PATTERN",
-      "value": "[a-zA-Z_$][a-zA-Z0-9_$]*"
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[$_\\p{L}][$\\p{L}\\p{N}_]*",
+          "flags": "u"
+        }
+      }
     }
   },
   "extras": [
