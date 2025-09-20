@@ -1172,10 +1172,6 @@
           "value": "string"
         },
         {
-          "type": "STRING",
-          "value": "any"
-        },
-        {
           "type": "SYMBOL",
           "name": "generic_type"
         },
@@ -1303,31 +1299,36 @@
             }
           },
           {
-            "type": "SYMBOL",
-            "name": "square_brackets"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
           },
           {
             "type": "REPEAT",
             "content": {
-              "type": "SYMBOL",
-              "name": "square_brackets"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "["
+                },
+                {
+                  "type": "STRING",
+                  "value": "]"
+                }
+              ]
             }
           }
         ]
       }
-    },
-    "square_brackets": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "["
-        },
-        {
-          "type": "STRING",
-          "value": "]"
-        }
-      ]
     },
     "pointer_type": {
       "type": "SEQ",
@@ -3591,27 +3592,6 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "type"
-                },
-                {
-                  "type": "STRING",
-                  "value": ";"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
               "type": "CHOICE",
               "members": [
                 {
@@ -3664,6 +3644,22 @@
         {
           "type": "STRING",
           "value": "]"
+        },
+        {
+          "type": "PREC",
+          "value": 10,
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "type"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
         }
       ]
     },
@@ -4461,10 +4457,6 @@
       "qualified_identifier",
       "expression",
       "yield_expression"
-    ],
-    [
-      "square_brackets",
-      "array_literal"
     ],
     [
       "generic_type",

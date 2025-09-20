@@ -58,7 +58,6 @@ module.exports = grammar({
     [$.type, $.qualified_identifier, $.expression],
     [$.qualified_identifier, $.variable_declaration_no_semi, $.expression],
     [$.qualified_identifier, $.expression, $.yield_expression],
-    [$.square_brackets, $.array_literal],
     [
       $.generic_type,
       $.qualified_identifier,
@@ -271,7 +270,6 @@ module.exports = grammar({
         "f64",
         "fn",
         "string",
-        "any",
         $.generic_type,
         $.identifier,
         $.array_type,
@@ -291,11 +289,10 @@ module.exports = grammar({
         1,
         seq(
           field("type", $.type),
-          $.square_brackets,
-          repeat($.square_brackets),
+          seq("[", "]"),
+          repeat(seq("[", "]")),
         ),
       ),
-    square_brackets: ($) => seq("[", "]"),
     pointer_type: ($) => seq($.type, token("*"), repeat(token("*"))),
 
     // Generic type: for types like Foo<Bar> or Foo<Bar<Baz *>>
@@ -623,9 +620,9 @@ module.exports = grammar({
       seq(
         optional("#"),
         "[",
-        optional(seq($.type, ";")),
         optional(commaSep($.expression)),
         "]",
+        optional($.type)
       ),
 
     struct_literal: ($) =>

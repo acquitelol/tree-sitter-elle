@@ -32,16 +32,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "square_brackets",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1298,11 +1288,6 @@
     "fields": {}
   },
   {
-    "type": "square_brackets",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "statement",
     "named": true,
     "fields": {},
@@ -1961,10 +1946,6 @@
   },
   {
     "type": "alloc",
-    "named": false
-  },
-  {
-    "type": "any",
     "named": false
   },
   {
