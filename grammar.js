@@ -64,6 +64,10 @@ module.exports = grammar({
       $.call_expression,
       $.struct_literal,
     ],
+    [
+      $.pointer_type,
+      $.array_literal
+    ]
   ],
 
   rules: {
@@ -637,7 +641,11 @@ module.exports = grammar({
         ),
       ),
 
-    struct_field_initializer: ($) => seq($.identifier, "=", $.expression),
+    struct_field_initializer: ($) => choice(
+      seq($.identifier, "=", $.expression),
+      $.identifier,
+      seq("..", $.expression)
+    ),
 
     range_expression: ($) =>
       prec(12, seq($.expression, choice("..", "..="), $.expression)),
