@@ -64,10 +64,7 @@ module.exports = grammar({
       $.call_expression,
       $.struct_literal,
     ],
-    [
-      $.pointer_type,
-      $.array_literal
-    ]
+    [$.pointer_type, $.array_literal],
   ],
 
   rules: {
@@ -76,7 +73,7 @@ module.exports = grammar({
         choice(
           $.import_statement,
           $.function_definition,
-          $.constant_definition,
+          $.global_definition,
           $.struct_definition,
           $.enum_definition,
           $.global_directive,
@@ -116,12 +113,6 @@ module.exports = grammar({
     // extra node for top-level parsing of types so it can be displayed by LSP clients
     lsp_type_definition: ($) =>
       choice(
-        seq(
-          choice("let", "const"),
-          choice($.identifier, $.nil_literal),
-          ":",
-          $.type,
-        ),
         seq($.string_literal, ":", $.type),
         seq($.character_literal, ":", $.type),
         seq(
@@ -219,14 +210,13 @@ module.exports = grammar({
       seq("...", optional(field("name", $.identifier))),
 
     // Constant definitions
-    constant_definition: ($) =>
+    global_definition: ($) =>
       seq(
         optional($.specifier_definition),
-        "const",
-        optional($.type),
+        "let",
         $.identifier,
-        "=",
-        $.expression,
+        optional(seq(":", $.type)),
+        optional(seq("=", $.expression)),
         ";",
       ),
 
@@ -291,11 +281,7 @@ module.exports = grammar({
     array_type: ($) =>
       prec.left(
         1,
-        seq(
-          field("type", $.type),
-          seq("[", "]"),
-          repeat(seq("[", "]")),
-        ),
+        seq(field("type", $.type), seq("[", "]"), repeat(seq("[", "]"))),
       ),
     pointer_type: ($) => seq($.type, token("*"), repeat(token("*"))),
 
@@ -626,7 +612,7 @@ module.exports = grammar({
         "[",
         optional(commaSep($.expression)),
         "]",
-        optional($.type)
+        optional($.type),
       ),
 
     struct_literal: ($) =>
@@ -641,11 +627,12 @@ module.exports = grammar({
         ),
       ),
 
-    struct_field_initializer: ($) => choice(
-      seq($.identifier, "=", $.expression),
-      $.identifier,
-      seq("..", $.expression)
-    ),
+    struct_field_initializer: ($) =>
+      choice(
+        seq($.identifier, "=", $.expression),
+        $.identifier,
+        seq("..", $.expression),
+      ),
 
     range_expression: ($) =>
       prec(12, seq($.expression, choice("..", "..="), $.expression)),

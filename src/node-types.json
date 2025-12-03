@@ -403,33 +403,6 @@
     }
   },
   {
-    "type": "constant_definition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "specifier_definition",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "continue_statement",
     "named": true,
     "fields": {}
@@ -887,6 +860,33 @@
     }
   },
   {
+    "type": "global_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "specifier_definition",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "global_directive",
     "named": true,
     "fields": {
@@ -1013,10 +1013,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "nil_literal",
           "named": true
         },
         {
@@ -1244,15 +1240,15 @@
           "named": true
         },
         {
-          "type": "constant_definition",
-          "named": true
-        },
-        {
           "type": "enum_definition",
           "named": true
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "global_definition",
           "named": true
         },
         {
@@ -1962,10 +1958,6 @@
   },
   {
     "type": "char",
-    "named": false
-  },
-  {
-    "type": "const",
     "named": false
   },
   {
