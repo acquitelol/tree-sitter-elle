@@ -216,6 +216,7 @@ module.exports = grammar({
         "let",
         $.identifier,
         optional(seq(":", $.type)),
+        optional($.attributes),
         optional(seq("=", $.expression)),
         ";",
       ),

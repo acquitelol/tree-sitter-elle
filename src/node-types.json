@@ -868,6 +868,10 @@
       "required": true,
       "types": [
         {
+          "type": "attributes",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         },
