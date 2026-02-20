@@ -276,7 +276,14 @@ module.exports = grammar({
     function_type: ($) =>
       prec.left(
         1,
-        seq("fn", "(", commaSep($.type), ")", optional(seq("->", $.type))),
+        seq(
+          "fn",
+          "(",
+          commaSep($.type),
+          optional("..."),
+          ")",
+          optional(seq("->", $.type)),
+        ),
       ),
 
     array_type: ($) =>
