@@ -649,9 +649,7 @@ module.exports = grammar({
       prec.left(
         seq(
           "fn",
-          "(",
-          optional($.parameter_list),
-          ")",
+          choice(seq("(", optional($.parameter_list), ")"), ":"),
           optional(seq("->", $.type)),
           choice($.expression, $.statement),
         ),
